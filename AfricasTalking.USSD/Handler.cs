@@ -32,7 +32,7 @@ namespace AfricasTalking.USSD
         /// <summary>
         /// Returns a Back handled menu int array, 
         /// 0  - 1 Step
-        /// 00 - 2 Step
+        /// 00 - Home
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
@@ -58,7 +58,7 @@ namespace AfricasTalking.USSD
 
             else if ((strSplit[arr_Length - 1] == "00" || String.IsNullOrEmpty(strSplit[arr_Length - 1])) && arr_Length >= 2)
             {
-                // Resize the Array to 2 Step 
+                // Resize the Array to Home
 
                 Array.Resize(ref strSplit, 0);
             }
