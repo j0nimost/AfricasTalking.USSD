@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.1.0</Version>
+    <Authors>j0nimost</Authors>
+    <Description>This is a simple wrapper library that allows you to easily consume AfricasTalking USSD Service in .NET!</Description>
+    <Copyright>2020</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/j0nimost/AfricasTalking.USSD</RepositoryUrl>
+    <PackageTags>ussd, africastalking</PackageTags>
+    <PackageReleaseNotes>First Release:
+
+1. Handles plain USSD requests
+2. Handles back handled USSD requests.
+
+Target Platform .Net Standard &gt;= 2.0</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
