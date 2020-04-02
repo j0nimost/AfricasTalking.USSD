@@ -10,7 +10,7 @@ namespace AfricasTalking.USSD
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static int[] ReqHandler(string text)
+        public int[] ReqHandler(string text)
         {
             // Splits the text to a string array
 
@@ -19,10 +19,14 @@ namespace AfricasTalking.USSD
 
             // Convert String array to Int array
 
-            int[] ussdArr = Array.ConvertAll<String, Int32>(strSplit, s => Int32.Parse(s));
+            if(!String.IsNullOrEmpty(strSplit[0]))
+            {
+                int[] ussdArr = Array.ConvertAll<String, Int32>(strSplit, s => Int32.Parse(s));
 
 
-            return ussdArr;
+                return ussdArr;
+            }
+            return new int[] { };
         }
 
         /// <summary>
@@ -43,26 +47,34 @@ namespace AfricasTalking.USSD
 
             // Check last Item if it's O
 
-            if (strSplit[arr_Length - 1] == "0"  && arr_Length >= 2)
+            if ((strSplit[arr_Length - 1] == "0" ||  String.IsNullOrEmpty(strSplit[arr_Length -1])) && arr_Length >= 2)
             {
+
+
                 // Resize the Array to 1 Step
-
-                Array.Resize(ref strSplit, arr_Length - 1);
-            }
-
-            else if (strSplit[arr_Length - 1] == "00" && arr_Length >= 3)
-            {
-                // Resize the Array to 2 Step 
 
                 Array.Resize(ref strSplit, arr_Length - 2);
             }
 
+            else if ((strSplit[arr_Length - 1] == "00" || String.IsNullOrEmpty(strSplit[arr_Length - 1])) && arr_Length >= 2)
+            {
+                // Resize the Array to 2 Step 
+
+                Array.Resize(ref strSplit, 0);
+            }
+
             // Convert String array to Int array
 
-            int[] ussdArr = Array.ConvertAll<String, Int32>(strSplit, s => Int32.Parse(s));
+            if(strSplit != null)
+            {
+                int[] ussdArr = Array.ConvertAll<String, Int32>(strSplit, s => Int32.Parse(s));
 
 
-            return ussdArr;
+                return ussdArr;
+            }
+
+            return new int[] { };
+            
         }
     }
 }
