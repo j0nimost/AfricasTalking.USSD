@@ -1,5 +1,5 @@
 # AfricasTalking.USSD
-.Net Standard Class Library that allows you to consume AfricasTalking USSD requests easily.
+.Net Standard Class Library that allows you to consume AfricasTalking API USSD requests easily.
 
 
 ## What it does?
